@@ -1,7 +1,13 @@
-
-
-
 <?php
+
+if( isset($_GET["keyword"]) ){
+    echo '有$_GET["keyword"]';
+} else {
+    echo '沒有$_GET["keyword"]';
+}
+
+echo "<hr>";
+
 echo $_GET['ro'];
 echo "<hr>";
 echo $_GET['jobcat']; 
@@ -23,11 +29,10 @@ echo "<hr>";
 echo $_GET['mode']; 
 echo "<hr>"; 
 echo $_GET['jobsource'];
+echo "<hr>"; 
+echo $_GET['cat'];
+
+
 
 echo "<hr>"; 
 
-if( isset($_GET["keyword"]) ){
-    echo '有$_GET["keyword"]';
-} else {
-    echo '沒有$_GET["keyword"]';
-}

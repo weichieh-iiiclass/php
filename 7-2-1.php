@@ -7,7 +7,7 @@ echo "我的體重: {$_POST['myWeight']}<br>";
 echo "<hr>";
 
 if(isset($_POST['myName'])) { 
-    echo '有 $_GET["myName"]'; 
+    echo '有 $_POST["myName"]'; 
 } else { 
-    echo '沒有 $_GET["myName"]'; 
+    echo '沒有 $_POST["myName"]'; 
 }

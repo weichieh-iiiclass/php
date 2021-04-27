@@ -7,6 +7,6 @@
     <title>7-1</title>
 </head>
 <body>
-<a href="./7-1-1.php?ro=0&jobcat=2007001006&kwop=7&keyword=php&expansionType=area,spec,com,job,wf,wktm&area=6001001000&order=12&asc=0&page=2&mode=s&jobsource=2018indexpoc">請按我<a/>
+<a href="./7-1-1.php?ro=0&jobcat=2007001006&kwop=7&keyword=php&expansionType=area,spec,com,job,wf,wktm&area=6001001000&order=12&asc=0&page=2&cat=5555&mode=s&jobsource=2018indexpoc">請按我</a>
 </body>
 </html>
