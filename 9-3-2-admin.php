@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+//判斷是否登入(確認先前指派的session索引是否存在)
 if (!isset($_SESSION['username'])) {
     session_destroy();
     header("Refresh: 3; url=./9-3.php");
@@ -24,7 +25,7 @@ if (!isset($_SESSION['username'])) {
     這裡是後端管理頁面 - <a href="./9-3-3-logout.php?logout=1">登出</a>
 
     <hr>
-    <img src="https://www.dora world.com.tw/upload/2020_02_12_1744480.jpg">
+    <img src="https://www.dora-world.com.tw/upload/2020_02_12_1744480.jpg">
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <?php
-
+//啟動 session
 session_start();
 ?>
 
@@ -16,7 +16,9 @@ session_start();
 <body>
     <?php
 
+    //儲存session資料
     $_SESSION['myName'] = 'Jessica';
+    //取得session資料
     $myName = $_SESSION['myName'];
 
     echo "我的名字: {$_SESSION['myName']}從session<br>";
@@ -24,10 +26,11 @@ session_start();
 
     echo "<hr>";
 
+    //設定session陣列
     $_SESSION['student']['name'] = 'Jessica Huang';
-    $_SESSION['student']['age'] = '18';
-    $_SESSION['student']['height'] = '170';
-    $_SESSION['student']['weight'] = '45';
+    $_SESSION['student']['age'] = 18;
+    $_SESSION['student']['height'] = 170;
+    $_SESSION['student']['weight'] = 45;
 
     echo "全名: {$_SESSION['student']['name']} <br>";
     echo "年齡: {$_SESSION['student']['age']} <br>";
