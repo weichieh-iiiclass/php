@@ -21,12 +21,12 @@ if ( isset($_POST['username']) && isset($_POST['pwd']) ){
         $_SESSION['username'] = $_POST['username'];
 
         header("Refresh: 3; url=./admin.php");
-        echo "登入成功";
+        require_once("./templates/login_success.html");
     } else {
         session_destroy();
 
-        header("Refresh: 3; url=./index.php");
-        echo "登入失敗";
+        header("Refresh: 5; url=./index.php");
+        require_once("./templates/login_failed.html");
     }
 
 } else {
