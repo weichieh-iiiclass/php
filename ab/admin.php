@@ -42,10 +42,12 @@
 <body>
     <div class="tb_width m-4">
         <?php require_once("./templates/title.php"); ?>
+        <form name="myForm" method="POST" action="./deleteIds.php">
         <table class="table table-bordered table-sm table-info">
 
             <thead>
                 <tr>
+                    <th>選擇</th>
                     <th>學號</th>
                     <th>姓名</th>
                     <th>性別</th>
@@ -80,12 +82,15 @@
                 for($i=0; $i<count($arr); $i++){
             ?>
                 <tr>
+                    <td>
+                        <input type="checkbox" name="chk[]"  value="<?php echo $arr[$i]['id'] ?>">
+                    </td>
                     <td><?php echo $arr[$i]['studentId'] ?></td>
                     <td><?php echo $arr[$i]['studentName'] ?></td>
                     <td><?php echo $arr[$i]['studentGender'] ?></td>
                     <td><?php echo $arr[$i]['studentBirthday'] ?></td>
                     <td><?php echo $arr[$i]['studentPhoneNumber'] ?></td>
-                    <td><?php echo $arr[$i]['studentDescription'] ?></td>
+                    <td><?php echo nl2br($arr[$i]['studentDescription']) ?></td>
                     <td>
                     <img style="width: 200px;" src="./files/<?php echo $arr[$i]['studentImg'] ?>" alt="">    
                     </td>
@@ -104,7 +109,7 @@
 
             <tfoot>
                 <tr>
-                    <td colspan="8">
+                    <td colspan="9">
                     <?php for($i=1; $i<=$totalPages; $i++){
                     ?><a href="?page=<?php echo $i ?>"> <?php echo $i ?> </a><?php 
                     }
@@ -114,6 +119,8 @@
             </tfoot>
 
         </table>
+        <input type="submit" name="smb" value="刪除">
+        </form>
 
     </div>
     <!-- Optional JavaScript -->
