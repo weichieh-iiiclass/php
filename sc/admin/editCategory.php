@@ -50,7 +50,7 @@ require_once '../db.inc.php';
                 ?>
                     <tr>
                         <td class="border">
-                            <input type="text" name="categoryNmae" value="<?php echo $arr['categoryName']; ?>" maxlength="100">
+                            <input type="text" name="categoryName" value="<?php echo $arr['categoryName']; ?>" maxlength="100">
                         </td>
                         <td class="border"><?php echo $arr['created_at']; ?></td>
                         <td class="border"><?php echo $arr['updated_at']; ?></td>

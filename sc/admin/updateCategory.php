@@ -7,7 +7,6 @@ $objResponse = [];
 $objResponse['success'] = false;
 $objResponse['info'] = "沒有任何更新";
 
-
 if( $_POST['categoryName'] == '' ){
     header("Refresh: 3; url=./editCategory.php?editCategoryId={$_POST['editCategoryId']}");
     $objResponse['info'] = "請填寫商品種類";
@@ -15,7 +14,7 @@ if( $_POST['categoryName'] == '' ){
     exit();
 }
 
-header("Refresh: 3; url=./editCategory.php?editCategoryId={$_POST['editCategoryId']}");
+header("Refresh: 3; url=./category.php"); //成功的話跳回編輯類別頁面
 
 $sql = "UPDATE `categories`
         SET `categoryName` = ?

@@ -36,5 +36,5 @@ if($stmt->rowCount() > 0){
     echo "新增成功";
 } else {
     header("Refresh: 3; url=./new.php");
-    echo "新增成功";
+    echo "新增失敗";
 }
