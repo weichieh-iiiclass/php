@@ -10,7 +10,7 @@ if( $_FILES['itemImg']['error'] === 0 ){
     $strDatetime = "item_}".date("YmdHis");
     $extension = pathinfo($_FILES['itemImg']['name'], PATHINFO_EXTENSION);
     $imgFileName = $strDatetime.".".$extension;
-    $isSuccess = move_uploaded_file($_FILES['itemImg']['tmp_name'], "../imges/items/{$imgFileName}");
+    $isSuccess = move_uploaded_file($_FILES['itemImg']['tmp_name'], "../images/items/{$imgFileName}");
 
     if( !$isSuccess ){
         header("Refresh: 3; url=./admin.php");

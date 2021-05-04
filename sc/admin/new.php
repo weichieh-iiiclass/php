@@ -56,7 +56,7 @@ $totalCategories = $pdo->query("SELECT COUNT(1) AS `count` FROM `categories`")->
                             <input type="text" name="itemPrice" value="" maxlength="11">
                         </td>
                         <td class="border">
-                            <input type="text" name="itemOty" value="" maxlength="3">
+                            <input type="text" name="itemQty" value="" maxlength="3">
                         </td>
                         <td class="border">
                             <select name="itemCategoryId">

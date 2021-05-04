@@ -41,7 +41,7 @@ $totalCategories = $pdo->query("SELECT COUNT(1) AS `count` FROM `categories`")->
     <?php
     if ($totalCategories > 0) {
     ?>
-        <form name="myForm" enctype="multipart/form-data" method="POST" action="deleteIds.php">
+        <form name="myForm" enctype="multipart/form-data" method="POST" action="./deleteIds.php">
             <table class="border">
                 <thead>
                     <tr>

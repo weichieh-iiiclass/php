@@ -27,6 +27,7 @@ if( $stmtGetImg->rowCount() > 0 ){
     $stmtDelete->execute([$strIds]);
     $count = $stmtDelete->rowCount();
 }
+header("Refresh: 3; url=./admin.php");
 if($count > 0) {
     $objResponse['success'] = true;
     $objResponse['info'] = "刪除成功";  
