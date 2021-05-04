@@ -12,7 +12,7 @@ $count = 0;
 
 $sqlGetImg = "SELECT `itemImg` FROM `items` WHERE FIND_IN_SET(`itemId`, ?) ";
 $stmtGetImg = $pdo->prepare($sqlGetImg);
-$sqlGetImg->execute([$strIds]);
+$stmtGetImg->execute([$strIds]);
 if( $stmtGetImg->rowCount() > 0 ){
     $arrImg = $stmtGetImg->fetchAll();
 
