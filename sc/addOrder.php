@@ -1,0 +1,52 @@
+<?php
+// session_start(); //改寫到checkSession.php裡面
+require_once './checkSession.php';
+require_once './db.inc.php';
+
+$objResponse = [];
+$objResponse['success'] = false;
+$objResponse['info'] = "訂單新增失敗";
+
+$count = 0;
+
+try{
+    //開啟交易功能,可用於報名人數
+    $pdo->beginTransaction();
+
+        $sqlOrder = "INSERT INTO `orders` (`username`) VALUES (?)";
+        $stmtOrder = $pdo->prepare($sqlOrder);
+        $arrParamOrder = [
+            $_SESSION['username']
+        ];
+        $stmtOrder->execute($arrParamOrder);
+
+        $orderId = $pdo->lastInsertId();
+
+        $sqlItemList = "INSERT INTO `item_lists` (`orderId`,`itemId`,`checkPrice`,`checkQty`,`checkSubtotal`) VALUES (?,?,?,?,?)";
+        $stmtItemList = $pdo->prepare($sqlItemList);
+        for( $i=0; $i<count($_POST['itemId']); $i++ ){
+            $arrParamItemList = [
+                $orderId,
+                $_POST['itemId'][$i],
+                $_POST["itemPrice"][$i],
+                $_POST["cartQty"][$i],
+                $_POST["subtotal"][$i]
+            ];
+            $stmtItemList->execute($arrParamItemList);
+            $count += $stmtItemList->rowCount();
+        }
+
+    $pdo->commit();
+} catch (PDOException $e) {
+    $pdo->rollBack();
+}
+
+header("Refresh: 3; url=./order.php");
+
+if( $count > 0 ){
+    unset($_SESSION['cart']);
+
+    $objResponse['success'] = true;
+    $objResponse['info'] = "訂單新增成功";
+}
+echo json_encode($objResponse, JSON_UNESCAPED_UNICODE);

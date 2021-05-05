@@ -20,7 +20,7 @@ if( isset($_POST['username']) && isset($_POST['pwd']) ){
             FROM `users`
             WHERE `username` = ?
             AND `pwd` = ?
-            AND `isActived` = 1";
+            AND `isActivated` = 1";
         break;
 
     }
