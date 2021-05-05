@@ -98,7 +98,9 @@ require_once("./db.inc.php"); //引用資料庫連線
             <?php
             } else {
             ?>
-    
+                <tr>
+                    <td class="border" colspan="6">沒有資料</td>
+                </tr>
             <?php
             }
     
