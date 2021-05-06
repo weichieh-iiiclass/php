@@ -32,6 +32,8 @@ require_once './templates/tpl-header.php';
         </div>
         <div class="col-md-9 col-sm-8">
         <?php
+        //確定為哪個商品 從url GET ['itemId']
+        //將此itemId的商品列表data與類別列表data做innerjoin
         if( isset($_GET['itemId']) ){
             $sql = "SELECT `items`.`itemId`, `items`.`itemName`, `items`.`itemImg`, `items`.`itemPrice`, 
             `items`.`itemQty`, `items`.`itemCategoryId`, `items`.`created_at`, `items`.`updated_at`,
@@ -61,12 +63,13 @@ require_once './templates/tpl-header.php';
                             <p>商品名稱：<?php echo $arrItem["itemName"] ?></p>
                             <p>商品價格：<?php echo $arrItem["itemPrice"] ?></p>
                             <p>商品數量：<?php echo $arrItem["itemQty"] ?></p>
+                            <!-- 在form裡面使用3個input傳值到下個頁面 -->
                             <form name="cartForm" id="cartForm" method="POST" action="./addCart.php">
                                 <label>數量：</label>
-                                <!-- 設定數量 -->
+                                <!-- 設定要購買的數量 將值以名為cartQty的input做輸入 -->
                                 <!-- cartQty -->
                                 <input type="number" name="cartQty" value="1" maxlength="5" min="1" max="<?php echo $arrItem["itemQty"] ?>">
-
+                                <!-- (int)$_GET['itemId'] -->
                                 <input type="hidden" name="itemId" value="<?php echo (int)$_GET['itemId'] ?>">
 
                                 <input type="submit" class="btn btn-primary btn-lg" name="smb" value="加入購物車">

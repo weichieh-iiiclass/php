@@ -20,8 +20,10 @@ try{
         ];
         $stmtOrder->execute($arrParamOrder);
 
+        //取得訂單最後一次新增時的流水號
         $orderId = $pdo->lastInsertId();
 
+        //將購物車中的項目新增置資料庫中，變成訂單明細
         $sqlItemList = "INSERT INTO `item_lists` (`orderId`,`itemId`,`checkPrice`,`checkQty`,`checkSubtotal`) VALUES (?,?,?,?,?)";
         $stmtItemList = $pdo->prepare($sqlItemList);
         for( $i=0; $i<count($_POST['itemId']); $i++ ){
@@ -43,7 +45,9 @@ try{
 
 header("Refresh: 3; url=./order.php");
 
+//商品明細數量大於0，則釋放存置購物車的 session 變數
 if( $count > 0 ){
+    //訂單完成後，注銷購物車資訊
     unset($_SESSION['cart']);
 
     $objResponse['success'] = true;
